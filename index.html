@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incident Report Card</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="incident-card" aria-labelledby="incident-report-title">
+        <header class="card-header">
+          <h1 id="incident-report-title">Incident Report</h1>
+          <label class="sr-only" for="time-range">Select incident report range</label>
+          <select id="time-range" class="range-select" aria-label="Select incident report range">
+            <option value="7">Last 7 Days</option>
+            <option value="30">Last 30 Days</option>
+            <option value="90">Last 90 Days</option>
+          </select>
+        </header>
+
+        <div class="chart-wrap" aria-label="Incidents over time">
+          <svg id="incident-chart" class="incident-chart" viewBox="0 0 560 200" role="img">
+            <defs>
+              <linearGradient id="area-gradient" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#40d3f4" stop-opacity="0.4" />
+                <stop offset="100%" stop-color="#40d3f4" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <title>Incident count trend</title>
+            <g id="grid-lines"></g>
+            <path id="area-path" class="area-path"></path>
+            <path id="line-path" class="line-path"></path>
+            <g id="x-axis"></g>
+          </svg>
+        </div>
+
+        <section class="summary-grid" aria-label="Incident summary">
+          <article class="summary-item">
+            <span class="summary-label">Critical Incidents</span>
+            <div class="summary-value-row">
+              <strong class="summary-value">321</strong>
+              <span class="trend-pill trend-up">
+                <svg viewBox="0 0 20 21" aria-hidden="true"><path d="M5.501 9.111 10.001 4.667m0 0 4.5 4.444m-4.5-4.444v11.667" /></svg>
+                12%
+              </span>
+            </div>
+            <span class="summary-note">Compared to 293 last week</span>
+          </article>
+
+          <article class="summary-item">
+            <span class="summary-label">Total Incidents</span>
+            <div class="summary-value-row">
+              <strong class="summary-value">1120</strong>
+              <span class="trend-pill trend-down">
+                <svg viewBox="0 0 20 21" aria-hidden="true"><path d="m14.499 11.889-4.5 4.444m0 0-4.5-4.444m4.5 4.444V4.667" /></svg>
+                4%
+              </span>
+            </div>
+            <span class="summary-note">Compared to 1.06k last week</span>
+          </article>
+        </section>
+
+        <section class="metrics-list" aria-label="Incident response metrics">
+          <article class="metric-row" style="--delay: 0ms">
+            <div class="metric-title"><span class="metric-icon critical-icon">!</span><span>Mean Time to Respond</span></div>
+            <div class="metric-result"><strong>6 Hours</strong><span class="metric-badge badge-up" aria-hidden="true"></span></div>
+          </article>
+          <article class="metric-row" style="--delay: 50ms">
+            <div class="metric-title"><span class="metric-icon critical-icon">!</span><span>Incident Response Time</span></div>
+            <div class="metric-result"><strong>4 Hours</strong><span class="metric-badge badge-up" aria-hidden="true"></span></div>
+          </article>
+          <article class="metric-row" style="--delay: 100ms">
+            <div class="metric-title"><span class="metric-icon improvement-icon">!</span><span>Incident Escalation Rate</span></div>
+            <div class="metric-result"><strong>10%</strong><span class="metric-badge badge-down" aria-hidden="true"></span></div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
